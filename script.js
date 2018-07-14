@@ -20,10 +20,10 @@ function getLocation(callback) {
     return null;
 }
 
-function displayInfo(pos) {
+function displayInfo(pos,message) {
     var infoWindow = new google.maps.InfoWindow;
     infoWindow.setPosition(pos);
-    infoWindow.setContent('Location found.');
+    infoWindow.setContent(message);
     infoWindow.open(map);
 }
 
