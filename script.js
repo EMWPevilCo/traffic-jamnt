@@ -96,7 +96,6 @@ function initSearchBox() {
     // more details for that place.
     searchBox.addListener('places_changed', function () {
         var places = searchBox.getPlaces();
-        window.places = places;
         if (places.length == 0) {
             return;
         }
@@ -182,7 +181,6 @@ function bugSprayOnStupidDot() {
     setTimeout(function () {
         clearStupidDot();
     }, 500);
-    ;
     setTimeout(function () {
         clearStupidDot();
     }, 1000);
@@ -208,6 +206,7 @@ function calcRoute(_origin, _destination, _waypoints) {
     directionsService.route(request, function (response, status) {
         if (status == 'OK') {
             directionsDisplay.setDirections(response);
+            window.response = response;
             bugSprayOnStupidDot();
         }
     });
