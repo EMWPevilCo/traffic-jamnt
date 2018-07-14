@@ -76,6 +76,8 @@ function initMap() {
     directionsDisplay = new google.maps.DirectionsRenderer();
     //directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
     directionsDisplay.setMap(map);
+
+    getLocation(); //Fetch my location
 }
 
 function initSearchBox() {
