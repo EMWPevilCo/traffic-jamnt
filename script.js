@@ -22,7 +22,7 @@ function getLocation(callback) {
     return null;
 }
 
-function Locify(latitute, longitude) {
+function Locationize(latitute, longitude) {
     return {lat: latitute, lng: longitude};
 }
 
@@ -74,6 +74,7 @@ function initMap() {
 
     directionsService = new google.maps.DirectionsService();
     directionsDisplay = new google.maps.DirectionsRenderer();
+    //directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
     directionsDisplay.setMap(map);
 }
 
