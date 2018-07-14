@@ -10,6 +10,7 @@ function getLocation(callback) {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
+            
             if (callback != null && callback != undefined) callback(pos);
             window.currentLocation = pos;
             return;
