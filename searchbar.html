@@ -95,7 +95,17 @@
 <body>
 <input id="pac-input" class="controls" type="text" placeholder="Search Box">
 <div id="map"></div>
-<button onclick="getLocation()">Try It</button>
+
+<script>
+    function tryIt() {
+        getLocation(function(loc){
+            displayInfo(loc);
+        });
+    }
+</script>
+
+
+<button onclick="tryIt()">Try It</button>
 
 <script>
     // This example adds a search box to a map, using the Google Place Autocomplete

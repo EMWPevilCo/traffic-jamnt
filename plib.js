@@ -1,5 +1,6 @@
 function init() {
     initMap();
+    initSearchBox();
 }
 
 function getLocation(callback) {
@@ -20,14 +21,14 @@ function getLocation(callback) {
 }
 
 function displayInfo(pos) {
-    infoWindow = new google.maps.InfoWindow;
+    var infoWindow = new google.maps.InfoWindow;
     infoWindow.setPosition(pos);
     infoWindow.setContent('Location found.');
     infoWindow.open(map);
 }
 
 function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 13.736717, lng: 100.523186},
         zoom: 9,
         mapTypeId: 'roadmap',
@@ -37,14 +38,10 @@ function initMap() {
 }
 
 function initSearchBox() {
-
-}
-
-function initAutocomplete() {
     // Create the search box and link it to the UI element.
     var input = document.getElementById('pac-input');
-    var searchBox = new google.maps.places.SearchBox(input);
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    var searchBox = new google.maps.places.SearchBox(input);
 
     // Bias the SearchBox results towards current map's viewport.
     map.addListener('bounds_changed', function () {
