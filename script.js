@@ -20,7 +20,7 @@ function getLocation(callback) {
     return null;
 }
 
-function displayInfo(pos,message) {
+function displayInfo(pos, message) {
     var infoWindow = new google.maps.InfoWindow;
     infoWindow.setPosition(pos);
     infoWindow.setContent(message);
@@ -28,8 +28,16 @@ function displayInfo(pos,message) {
 }
 
 function initMap() {
+
+    var centerLocation = {lat: 13.736717, lng: 100.523186};
+
+    getLocation(function (loc) {
+        if(loc != null)
+            centerLocation = loc;
+    })
+
     map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 13.736717, lng: 100.523186},
+        center: centerLocation,
         zoom: 9,
         mapTypeId: 'roadmap',
         disableDefaultUI: false
