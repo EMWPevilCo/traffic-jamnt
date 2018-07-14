@@ -10,7 +10,7 @@ function getLocation(callback) {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-            
+
             if (callback != null && callback != undefined) callback(pos);
             window.currentLocation = pos;
             return;
@@ -20,6 +20,10 @@ function getLocation(callback) {
         });
     }
     return null;
+}
+
+function Locify(latitute,longitude) {
+    return {lat: latitute,lng: longitude};
 }
 
 function displayInfo(pos, message) {
@@ -67,6 +71,10 @@ function initMap() {
         disableDefaultUI: false
     });
 
+
+    directionsService = new google.maps.DirectionsService();
+    directionsDisplay = new google.maps.DirectionsRenderer();
+    directionsDisplay.setMap(map);
 }
 
 function initSearchBox() {
@@ -128,5 +136,18 @@ function initSearchBox() {
             }
         });
         map.fitBounds(bounds);
+    });
+}
+
+function calcRoute(_origin,_destination) {
+    var request = {
+        origin: _origin,
+        destination: _destination,
+        travelMode: google.maps.TravelMode.WALKING
+    };
+    directionsService.route(request, function (response, status) {
+        if (status == 'OK') {
+            directionsDisplay.setDirections(response);
+        }
     });
 }
