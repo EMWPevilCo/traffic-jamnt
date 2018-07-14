@@ -11,6 +11,7 @@ function getLocation(callback) {
                 lng: position.coords.longitude
             };
             callback(pos);
+            window.currentLocation = pos;
             return;
 
         }, function () {
