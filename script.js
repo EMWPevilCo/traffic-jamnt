@@ -94,10 +94,11 @@ function initSearchBox() {
     // more details for that place.
     searchBox.addListener('places_changed', function () {
         var places = searchBox.getPlaces();
-
+        window.places = places;
         if (places.length == 0) {
             return;
         }
+        selectedPlaceUpdated(places);
 
         // Clear out the old markers.
         markers.forEach(function (marker) {
@@ -151,6 +152,50 @@ function generateWaypoints() {
     return waypoints;
 }
 
+function bugSprayOnStupidDot() {
+    setTimeout(function () {
+        clearStupidDot();
+    }, 1);
+    setTimeout(function () {
+        clearStupidDot();
+    }, 2);
+    setTimeout(function () {
+        clearStupidDot();
+    }, 5);
+    setTimeout(function () {
+        clearStupidDot();
+    }, 10);
+    setTimeout(function () {
+        clearStupidDot();
+    }, 30);
+    setTimeout(function () {
+        clearStupidDot();
+    }, 60);
+    setTimeout(function () {
+        clearStupidDot();
+    }, 120);
+    setTimeout(function () {
+        clearStupidDot();
+    }, 250);
+    setTimeout(function () {
+        clearStupidDot();
+    }, 500);
+    ;
+    setTimeout(function () {
+        clearStupidDot();
+    }, 1000);
+}
+
+function clearStupidDot() {
+    var imgs = document.getElementsByTagName("img");
+
+    for (var i = 0; i < imgs.length; i++) {
+        if (imgs[i].src === "https://maps.gstatic.com/mapfiles/dd-via.png") {
+            imgs[i].style.visibility = "hidden";
+        }
+    }
+}
+
 function calcRoute(_origin, _destination, _waypoints) {
     var request = {
         origin: _origin,
@@ -161,13 +206,14 @@ function calcRoute(_origin, _destination, _waypoints) {
     directionsService.route(request, function (response, status) {
         if (status == 'OK') {
             directionsDisplay.setDirections(response);
+            bugSprayOnStupidDot();
         }
     });
-
-function calcTime(){
-
 }
-function calcDistance(){
 
-}
+function selectedPlaceUpdated(places) {
+    if (places.length != 1) return;
+    getLocation();
+    loc2 = Locationize(places[0].geometry.location.lat(), places[0].geometry.location.lng());
+    calcRoute(currentLocation,loc2);
 }
