@@ -80,7 +80,7 @@ function initMap() {
 function initSearchBox() {
     // Create the search box and link it to the UI element.
     var input = document.getElementById('pac-input');
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    map.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
     var searchBox = new google.maps.places.SearchBox(input);
 
     // Bias the SearchBox results towards current map's viewport.
