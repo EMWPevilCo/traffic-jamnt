@@ -151,16 +151,6 @@ function generateWaypoints() {
     return waypoints;
 }
 
-function clearStupidDot() {
-    var imgs = document.getElementsByTagName("img");
-
-    for (var i = 0; i < imgs.length; i++) {
-        if (imgs[i].src === "https://maps.gstatic.com/mapfiles/dd-via.png") {
-            imgs[i].style.visibility = "hidden";
-        }
-    }
-}
-
 function calcRoute(_origin, _destination, _waypoints) {
     var request = {
         origin: _origin,
@@ -171,12 +161,13 @@ function calcRoute(_origin, _destination, _waypoints) {
     directionsService.route(request, function (response, status) {
         if (status == 'OK') {
             directionsDisplay.setDirections(response);
-            setTimeout(function () {
-                clearStupidDot();
-            },120);
-            setTimeout(function () {
-                clearStupidDot();
-            },250);
         }
     });
+
+function calcTime(){
+
+}
+function calcDistance(){
+
+}
 }
