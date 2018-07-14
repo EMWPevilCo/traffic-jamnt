@@ -152,7 +152,6 @@ function generateWaypoints() {
     return waypoints;
 }
 
-<<<<<<< HEAD
 function bugSprayOnStupidDot() {
     setTimeout(function () {
         clearStupidDot();
@@ -197,8 +196,6 @@ function clearStupidDot() {
     }
 }
 
-=======
->>>>>>> 7afaea448ef7c522c30466380e2f0077de6fee09
 function calcRoute(_origin, _destination, _waypoints) {
     var request = {
         origin: _origin,
@@ -209,7 +206,6 @@ function calcRoute(_origin, _destination, _waypoints) {
     directionsService.route(request, function (response, status) {
         if (status == 'OK') {
             directionsDisplay.setDirections(response);
-<<<<<<< HEAD
             bugSprayOnStupidDot();
         }
     });
@@ -220,15 +216,4 @@ function selectedPlaceUpdated(places) {
     getLocation();
     loc2 = Locationize(places[0].geometry.location.lat(), places[0].geometry.location.lng());
     calcRoute(currentLocation,loc2);
-=======
-        }
-    });
-
-function calcTime(){
-
-}
-function calcDistance(){
-
-}
->>>>>>> 7afaea448ef7c522c30466380e2f0077de6fee09
 }
