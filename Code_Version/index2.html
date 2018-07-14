@@ -1,3 +1,4 @@
+<<<<<<< HEAD:Code_Version/index2.html
 <!DOCTYPE html>
 <html>
   <head>
@@ -196,4 +197,32 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmp2Te2_Jge2LuBND0okhevGot4iD-408&libraries=places&callback=initAutocomplete"
          async defer></script>
   </body>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <script src="plib.js"></script>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <title>Places Searchbox</title>
+</head>
+<body>
+<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+<div id="map"></div>
+
+<script>
+    function tryIt() {
+        getLocation(function (loc) {
+            displayInfo(loc);
+        });
+    }
+</script>
+
+<button onclick="tryIt()">Try It</button>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmp2Te2_Jge2LuBND0okhevGot4iD-408&libraries=places&callback=init"
+        async defer></script>
+</body>
+>>>>>>> bushes:searchbar.html
 </html>
