@@ -155,7 +155,7 @@ function calcRoute(_origin, _destination, _waypoints) {
         origin: _origin,
         destination: _destination,
         waypoints: _waypoints,
-        travelMode: google.maps.TravelMode.WALKING
+        travelMode: google.maps.TravelMode.DRIVING
     };
     directionsService.route(request, function (response, status) {
         if (status == 'OK') {
