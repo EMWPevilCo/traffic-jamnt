@@ -27,12 +27,34 @@ function displayInfo(pos, message) {
     infoWindow.open(map);
 }
 
+function drawLine() {
+
+    var locs = [];
+    for (var i = 0; i < arguments.length; i++) {
+        locs.push(arguments[i]);
+    }
+
+    var PolylinePath = new google.maps.Polyline({
+        path: locs, // From a to b
+        geodesic: false,
+        strokeColor: '#FF2222',
+        strokeOpacity: 1.0,
+        strokeWeight: 2
+    });
+
+    PolylinePath.setMap(map);
+}
+
+function combineLocation(loc1, loc2) {
+    return {lat: loc1.lat + loc2.lat, lng: loc1.lng + loc2.lng};
+}
+
 function initMap() {
 
     var centerLocation = {lat: 13.736717, lng: 100.523186};
 
     getLocation(function (loc) {
-        if(loc != null)
+        if (loc != null)
             centerLocation = loc;
     })
 
