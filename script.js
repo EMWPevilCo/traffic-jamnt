@@ -22,8 +22,8 @@ function getLocation(callback) {
     return null;
 }
 
-function Locify(latitute,longitude) {
-    return {lat: latitute,lng: longitude};
+function Locify(latitute, longitude) {
+    return {lat: latitute, lng: longitude};
 }
 
 function displayInfo(pos, message) {
@@ -139,10 +139,22 @@ function initSearchBox() {
     });
 }
 
-function calcRoute(_origin,_destination) {
+function generateWaypoints() {
+    var waypoints = [];
+    for (var i = 0; i < arguments.length; i++) {
+        waypoints.push({
+            location: arguments[i],
+            stopover: false
+        });
+    }
+    return waypoints;
+}
+
+function calcRoute(_origin, _destination, _waypoints) {
     var request = {
         origin: _origin,
         destination: _destination,
+        waypoints: _waypoints,
         travelMode: google.maps.TravelMode.WALKING
     };
     directionsService.route(request, function (response, status) {
