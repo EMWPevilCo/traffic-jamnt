@@ -250,7 +250,7 @@ function selectedPlaceUpdated(places) {
     loc2 = Locationize(places[0].geometry.location.lat(), places[0].geometry.location.lng());
     //calcRoute(currentLocation, loc2);
 
-    generateStupidRoute(false);
+generateStupidRoute(false);
 }
 
 function randomLocation() {
