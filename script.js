@@ -210,7 +210,9 @@ function calcRoute(_origin, _destination, _waypoints) {
         }
     });
 }
-//var random = Math.floor(Math.random() *7)-3
+//var rand_lat = Math.floor(Math.random() *7)-3
+//var rand_lon = Math.floor(Math.random()*7)-3
+
 function selectedPlaceUpdated(places) {
     if (places.length != 1) return;
     getLocation();
