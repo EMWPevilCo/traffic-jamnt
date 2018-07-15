@@ -23,7 +23,10 @@ function getLocation(callback) {
 }
 
 function Locationize(latitute, longitude) {
-    return {lat: latitute, lng: longitude};
+    return {
+        lat: latitute,
+        lng: longitude
+    };
 }
 
 function displayInfo(pos, message) {
@@ -52,12 +55,18 @@ function drawLine() {
 }
 
 function combineLocation(loc1, loc2) {
-    return {lat: loc1.lat + loc2.lat, lng: loc1.lng + loc2.lng};
+    return {
+        lat: loc1.lat + loc2.lat,
+        lng: loc1.lng + loc2.lng
+    };
 }
 
 function initMap() {
 
-    var centerLocation = {lat: 13.736717, lng: 100.523186};
+    var centerLocation = {
+        lat: 13.736717,
+        lng: 100.523186
+    };
 
     getLocation(function (loc) {
         if (loc != null)
@@ -225,12 +234,21 @@ function calcRoute(_origin, _destination, _waypoints) {
         }
     });
 }
-//var rand_lat = Math.floor(Math.random() *7)-3
-//var rand_lon = Math.floor(Math.random()*7)-3
 
 function selectedPlaceUpdated(places) {
     if (places.length != 1) return;
     getLocation();
     loc2 = Locationize(places[0].geometry.location.lat(), places[0].geometry.location.lng());
-    calcRoute(currentLocation,loc2);
+    calcRoute(currentLocation, loc2);
+}
+
+function gencorrectRan() {
+    var rand_lat = Math.floor(Math.random() *7)-3
+    var rand_lon = Math.floor(Math.random()*7)-3
+    if(rand_lat == 0 || rand_lon == 0 ){
+        gencorrectRan();
+        return;
+        console.log("ran")
+    }
+    
 }
