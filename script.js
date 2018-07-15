@@ -250,5 +250,8 @@ function gencorrectRan() {
         return;
         console.log("ran")
     }
+    else{
+        console.log(`${rand_lat} + ${rand_lon}`)
+    }
     
 }
