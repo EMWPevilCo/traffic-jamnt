@@ -225,7 +225,7 @@ function clearStupidDot() {
     }
 }
 
-function calcRoute(_origin, _destination, _waypoints, callback) {
+function calcRoute(_origin, _destination, _waypoints, showonmap, callback) {
     var request = {
         origin: _origin,
         destination: _destination,
@@ -236,7 +236,8 @@ function calcRoute(_origin, _destination, _waypoints, callback) {
         callbackValid = (callback !== undefined && callback != null);
 
         if (status === 'OK') {
-            directionsDisplay.setDirections(response);
+            window.directionQueryResponse = response;
+            if (showonmap !== false) directionsDisplay.setDirections(response);
             window.response = response;
             bugSprayOnStupidDot();
             if (callbackValid) callback(true);
@@ -251,9 +252,14 @@ function selectedPlaceUpdated(places) {
     if (places.length !== 1) return;
     getLocation();
     loc2 = Locationize(places[0].geometry.location.lat(), places[0].geometry.location.lng());
-    //calcRoute(currentLocation, loc2);
 
-generateStupidRoute(false);
+    calcRoute(currentLocation, loc2, undefined, false, function (woo) {
+        if (woo) {
+            window.shortestRouteDistance = directionQueryResponse.routes[0].legs[0].distance;
+        }
+    });
+
+    generateStupidRoute(false);
 }
 
 function randomLocation() {
@@ -263,27 +269,36 @@ function randomLocation() {
         randomLocation();
         return;
     }
-    //console.log(rand_lat + " " + rand_lng);
 }
 
 
 //exit variable use for concurrent call
 function generateStupidRoute(exit) {
-    if (exit === true) return;
+    if (exit === true) {
+        newDistance = directionQueryResponse.routes[0].legs[0].distance;
 
-    var waypoint = [];
+        alert("Hello there!\n" +
+            "Originally you will have to travel for " + shortestRouteDistance.text + "\n" +
 
+            "With our advanced algorithm you'll have to travel for just " + newDistance.text + "\n" +
+            "This shit is impressive, isn't it?"
+        );
+
+        return;
+    }
+
+    //Generate random waypoints
+    var waypoints = [];
     for (var i = 0; i < placesToRandom; i++) {
         randomLocation();
-        waypoint.push({
+        waypoints.push({
             location: combineLocation(currentLocation, Locationize(rand_lat, rand_lng)),
             stopover: false
         });
     }
-    //var wp = generateWaypointsFromLocation(combineLocation(currentLocation, Locationize(rand_lat, rand_lng)));
 
-    //Pass generateStupidRoute as a callback so if route generation failed, it will rerandom and try to find new one
-    calcRoute(currentLocation, loc2, waypoint, generateStupidRoute);
+    //Pass generateStupidRoute as a callback so if route generation failed, it will re-random and try to find new one
+    calcRoute(currentLocation, loc2, waypoints, true, generateStupidRoute);
 }
 
 function startButton() {
