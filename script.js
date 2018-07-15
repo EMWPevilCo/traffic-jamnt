@@ -255,6 +255,7 @@ function gencorrectRan() {
     else{
         console.log("yeah")
     }
+<<<<<<< HEAD
     function startButton(){
         getLocation();
         displayInfo(window.currentLocation, 'YOU ARE HERE');
@@ -266,4 +267,13 @@ function gencorrectRan() {
         generateWaypoints(combineLocation(currentLocation,Locationize(rand_lat,rand_lon))));
 
     }
+=======
+    
+}
+
+function startButton(){
+    getLocation();
+    displayInfo(window.currentLocation, 'YOU ARE HERE');
+    console.log('hello world')
+>>>>>>> ba6a93babb5e6b4b85003162628ec3a489aa332e
 }
