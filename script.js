@@ -17,7 +17,7 @@ function getLocation(callback) {
                 lng: position.coords.longitude
             };
 
-            if (callback != null && callback != undefined) callback(pos);
+            if (callback != null && callback !== undefined) callback(pos);
             window.currentLocation = pos;
             return;
 
@@ -126,7 +126,7 @@ function initSearchBox() {
     // more details for that place.
     searchBox.addListener('places_changed', function () {
         var places = searchBox.getPlaces();
-        if (places.length == 0) {
+        if (places.length === 0) {
             return;
         }
         selectedPlaceUpdated(places);
