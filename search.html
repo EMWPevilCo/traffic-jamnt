@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <script src="script.js"></script>
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Traffic Jamn't</title>
     <link rel="shortcut icon" href="https://i.kym-cdn.com/photos/images/original/001/248/399/430.png" />
-    <style>
-    input {
-	outline: none;
-}
-    </style>
 </head>
+
 <body>
+<<<<<<< HEAD
 <div id="map"></div>
+=======
+    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    <div id="map"></div>
+>>>>>>> b3233dd98e86ca704fdb6e71f9e16f3016eb620d
 
-<script>
-    function tryIt() {
-        getLocation(function (loc) {
-            displayInfo(loc, 'Location found.');
-        });
-    }
-</script>
+    <script>
+        function tryIt() {
+            getLocation(function (loc) {
+                displayInfo(loc, 'Location found.');
+            });
+        }
+    </script>
 
+<<<<<<< HEAD
 <!-- <button onclick="tryIt()">Try It</button> -->
 <div class = "row" style="margin:0;height: 10vh;position: absolute;width: 100%;">
     <button onclick="searchbox()" class="block">Start!</button>
@@ -44,5 +47,14 @@ $(document).ready(function(){
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmp2Te2_Jge2LuBND0okhevGot4iD-408&libraries=places&callback=init"
 ></script>
+=======
+    <!-- <button onclick="tryIt()">Try It</button> -->
+    <div class="row" style="margin:0;height: 10vh;position: absolute;width: 100%;">
+            <script src="script.js"></script>
+        <button class="block" onclick="startButton();">Start!</button>
+    </div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmp2Te2_Jge2LuBND0okhevGot4iD-408&libraries=places&callback=init"></script>
+>>>>>>> b3233dd98e86ca704fdb6e71f9e16f3016eb620d
 </body>
+
 </html>

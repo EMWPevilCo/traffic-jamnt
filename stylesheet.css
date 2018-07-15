@@ -81,7 +81,9 @@ input {
 }
 input[type=search] {
 	-webkit-appearance: textfield;
-	-webkit-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    appearance: textfield;
+	box-sizing: content-box;
 	font-family: inherit;
 	font-size: 100%;
 }
