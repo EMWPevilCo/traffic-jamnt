@@ -277,15 +277,17 @@ function generateStupidRoute(exit) {
     if (exit === true) {
         newDistance = directionQueryResponse.routes[0].legs[0].distance;
 
-        alert("Hello there!\n" +
-            "Originally you will have to travel for " + shortestRouteDistance.text + "\n" +
+        setTimeout(function () {
 
-            "With our advanced algorithm you'll have to travel for just " + newDistance.text + "\n" +
+            alert("Hello there!\n" +
+                "Originally you will have to travel for " + shortestRouteDistance.text + "\n" +
 
-            "We saved you " + ((shortestRouteDistance.value - newDistance.value) / 1000) + " km" + "\n" +
-            "This shit is impressive, isn't it?"
-        );
+                "With our advanced algorithm you'll have to travel for just " + newDistance.text + "\n" +
 
+                "We saved you " + ((shortestRouteDistance.value - newDistance.value) / 1000) + " km" + "\n" +
+                "This shit is impressive, isn't it?"
+            );
+        }, 1000);
         return;
     }
 
