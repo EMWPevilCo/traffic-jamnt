@@ -281,6 +281,8 @@ function generateStupidRoute(exit) {
             "Originally you will have to travel for " + shortestRouteDistance.text + "\n" +
 
             "With our advanced algorithm you'll have to travel for just " + newDistance.text + "\n" +
+
+            "We saved you " + ((shortestRouteDistance.value - newDistance.value) / 1000) + " km" + "\n" +
             "This shit is impressive, isn't it?"
         );
 
