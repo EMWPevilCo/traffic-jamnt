@@ -255,3 +255,9 @@ function gencorrectRan() {
     }
     
 }
+
+function startButton(){
+    getLocation();
+    displayInfo(window.currentLocation, 'YOU ARE HERE');
+    console.log('hello world')
+}
