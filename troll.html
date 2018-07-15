@@ -5,22 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>LOL</title>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Prompt|Montserrat');
         .container {
             margin: 0px;
             top: 0;
             bottom: 0;
-            left: 0;
-            right: 0;
+            left: 5vw;
+            right: 5vw;
             width: 100vw;
             height: 100vh;
-            overflow: hidden;
         }
 
         body {
             margin: 0px;
+            overflow: hidden;
         }
 
         .top {
@@ -45,24 +45,44 @@
 
         @keyframes color-change {
             0% {
-                color: red;
+                color: #9400D3;
             }
-            50% {
-                color: blue;
+            20% {
+                color: #4B0082;
+            }
+            40% {
+                color: #0000FF;
+            }
+            60% {
+                color: rgb(22, 177, 22);
+            }
+            80% {
+                color: #FF7F00;
             }
             100% {
-                color: red;
+                color: #FF0000;
             }
         }
 
-        @keyframes appear {
+        .trollface {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            z-index: -1;
+            animation: trollface 15s infinite;
+        }
+
+        @keyframes trollface {
             0% {
-                color: white;
+                top: 10vh;
+                left: -100vw;
             }
             100% {
-                color: black;
+                top: 10vh;
+                left: 110vw;
             }
         }
+
     </style>
 </head>
 
@@ -76,6 +96,6 @@
             <a href="https://www.google.com/maps">www.google.com/map</a><a href="search.html">s</a>
         </p>
     </div>
+    <img src="TrollFace.jpg" style="height:40vw" alt="LOL" class="trollface">
 </body>
-
 </html>
