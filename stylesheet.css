@@ -84,7 +84,7 @@ html, body {
     width: 345px;
 }
 .footer{
-    height: 7.5vh;
+    height: 10vh;
     background-color: teal;
 }
 .block {
@@ -102,4 +102,7 @@ html, body {
 .block:hover {
     background-color: grey;
     color: black;
+}
+.top{
+    width: 7.5vw
 }
