@@ -61,7 +61,7 @@ body {
 }
 
 #pac-input {
-    display: none;
+  
     color: white;
     margin-top: 5vh;
     background-color: coral;
@@ -73,7 +73,7 @@ body {
     text-overflow: ellipsis;
     width: 30em;
     height: 3em;
-    position: center;
+    
    
 }
 input {
