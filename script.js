@@ -1,5 +1,3 @@
-var rand_lat
-var rand_lon
 function init() {
     initMap();
     initSearchBox();
@@ -245,20 +243,15 @@ function selectedPlaceUpdated(places) {
 }
 
 function gencorrectRan() {
-    rand_lat = Math.floor(Math.random() *7)-3
-    rand_lon = Math.floor(Math.random()*7)-3
+    var rand_lat = Math.floor(Math.random() *7)-3
+    var rand_lon = Math.floor(Math.random()*7)-3
     if(rand_lat == 0 || rand_lon == 0 ){
-        console.log(`0 is ${rand_lon}`)
-        console.log(`0 is ${rand_lat}`)
         gencorrectRan();
-     }
-    else{
-        console.log(`not 0 is ${rand_lon}`)
-        console.log(`not 0 is ${rand_lat}`)
+        return;
+        console.log("ran")
     }
-}
-function startButton(){
-    getLocation();
-    displayInfo(window.currentLocation, 'YOU ARE HERE');
-    console.log('hello world')
+    else{
+        console.log("yeah")
+    }
+    
 }
