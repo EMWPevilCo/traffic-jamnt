@@ -1,5 +1,8 @@
-var rand_lat
-var rand_lng
+var placesToRandom = 5;
+
+
+var rand_lat;
+var rand_lng;
 
 function init() {
     initMap();
@@ -270,7 +273,7 @@ function generateStupidRoute(exit) {
 
     var waypoint = [];
 
-    for (var i = 0; i < 2; i++) {
+    for (var i = 0; i < placesToRandom; i++) {
         randomLocation();
         waypoint.push({
             location: combineLocation(currentLocation, Locationize(rand_lat, rand_lng)),
