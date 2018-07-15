@@ -1,5 +1,6 @@
 var rand_lat
-var rand_lon
+var rand_lng
+
 function init() {
     initMap();
     initSearchBox();
@@ -168,7 +169,7 @@ function initSearchBox() {
     });
 }
 
-function generateWaypoints() {
+function generateWaypointsFromLocation() {
     var waypoints = [];
     for (var i = 0; i < arguments.length; i++) {
         waypoints.push({
@@ -221,7 +222,7 @@ function clearStupidDot() {
     }
 }
 
-function calcRoute(_origin, _destination, _waypoints) {
+function calcRoute(_origin, _destination, _waypoints, callback) {
     var request = {
         origin: _origin,
         destination: _destination,
@@ -229,45 +230,62 @@ function calcRoute(_origin, _destination, _waypoints) {
         travelMode: google.maps.TravelMode.DRIVING
     };
     directionsService.route(request, function (response, status) {
-        if (status == 'OK') {
+        callbackValid = (callback !== undefined && callback != null);
+
+        if (status === 'OK') {
             directionsDisplay.setDirections(response);
             window.response = response;
             bugSprayOnStupidDot();
+            if (callbackValid) callback(true);
+        }
+        else {
+            callback(false);
         }
     });
 }
 
 function selectedPlaceUpdated(places) {
-    if (places.length != 1) return;
+    if (places.length !== 1) return;
     getLocation();
     loc2 = Locationize(places[0].geometry.location.lat(), places[0].geometry.location.lng());
-    calcRoute(currentLocation, loc2);
+    //calcRoute(currentLocation, loc2);
+
+    generateStupidRoute(false);
 }
 
-function gencorrectRan() {
-    rand_lat = Math.floor(Math.random() *7)-3
-    rand_lon = Math.floor(Math.random()*7)-3
-    if(rand_lat == 0 || rand_lon == 0 ){
-        gencorrectRan();
+function randomLocation() {
+    rand_lat = Math.floor(Math.random() * 7) - 3;
+    rand_lng = Math.floor(Math.random() * 7) - 3;
+    if (rand_lat === 0 || rand_lng === 0) {
+        randomLocation();
         return;
-        console.log("ran")
     }
-    else{
-        console.log("yeah")
-    }
-
+    //console.log(rand_lat + " " + rand_lng);
 }
 
 
-function resultSum(){
-    calcRoute(currentLocation,combineLocation(currentLocation,Locationize(rand_lat,rand_lon)),
-    generateWaypoints(combineLocation(currentLocation,Locationize(rand_lat,rand_lon))));
+//exit variable use for concurrent call
+function generateStupidRoute(exit) {
+    if (exit === true) return;
 
+    var waypoint = [];
+
+    for (var i = 0; i < 2; i++) {
+        randomLocation();
+        waypoint.push({
+            location: combineLocation(currentLocation, Locationize(rand_lat, rand_lng)),
+            stopover: false
+        });
+    }
+    //var wp = generateWaypointsFromLocation(combineLocation(currentLocation, Locationize(rand_lat, rand_lng)));
+
+    //Pass generateStupidRoute as a callback so if route generation failed, it will rerandom and try to find new one
+    calcRoute(currentLocation, loc2, waypoint, generateStupidRoute);
 }
-function startButton(){
-    getLocation();
-    displayInfo(window.currentLocation, 'YOU ARE HERE');
-    console.log('hello world')
-    
+
+function startButton() {
+    getLocation(function (a) {
+        displayInfo(window.currentLocation, 'YOU ARE HERE');
+    });
 }
 
