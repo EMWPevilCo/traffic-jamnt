@@ -66,7 +66,7 @@ function initMap() {
 
     map = new google.maps.Map(document.getElementById('map'), {
         center: centerLocation,
-        zoom: 9,
+        zoom: 18,
         mapTypeId: 'roadmap',
         disableDefaultUI: false
     });
@@ -188,7 +188,6 @@ function bugSprayOnStupidDot() {
 
 function clearStupidDot() {
     var imgs = document.getElementsByTagName("img");
-
     for (var i = 0; i < imgs.length; i++) {
         if (imgs[i].src === "https://maps.gstatic.com/mapfiles/dd-via.png") {
             imgs[i].style.visibility = "hidden";
@@ -211,7 +210,7 @@ function calcRoute(_origin, _destination, _waypoints) {
         }
     });
 }
-
+//var random = Math.floor(Math.random() *7)-3
 function selectedPlaceUpdated(places) {
     if (places.length != 1) return;
     getLocation();
