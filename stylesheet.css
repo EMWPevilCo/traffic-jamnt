@@ -2,7 +2,8 @@
         * element that contains the map. */
 #map {
     height: 90vh;
-    width: 100vw;
+    width: 100%;
+   
 }
 
 /* Optional: Makes the sample page fill the window. */
@@ -58,6 +59,7 @@ html, body {
 }
 
 #pac-input {
+    margin-top: 5vh;
     background-color: #fff;
     font-family: Roboto;
     font-size: 15px;
