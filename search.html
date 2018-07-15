@@ -17,9 +17,6 @@
     </style>
 </head>
 <body>
-<form>
-<input id="pac-input" class="controls" type="search"  placeholder="Where do you want to go ?">
-</form>
 <div id="map"></div>
 
 <script>
@@ -32,8 +29,18 @@
 
 <!-- <button onclick="tryIt()">Try It</button> -->
 <div class = "row" style="margin:0;height: 10vh;position: absolute;width: 100%;">
-    <button class="block">Start!</button>
+    <button onclick="searchbox()" class="block">Start!</button>
     </div>
+  
+<input id="pac-input" class="controls" type="search"  placeholder="Where do you want to go ?">
+
+<script>
+$(document).ready(function(){
+      $(".block").click(function(){
+          $("#pac-input").toggle();
+      });
+  });
+</script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmp2Te2_Jge2LuBND0okhevGot4iD-408&libraries=places&callback=init"
 ></script>
