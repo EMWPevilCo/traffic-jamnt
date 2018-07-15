@@ -256,17 +256,18 @@ function gencorrectRan() {
         console.log("yeah")
     }
 
-    function startButton(){
-        getLocation();
-        displayInfo(window.currentLocation, 'YOU ARE HERE');
-        console.log('hello world')
-        
-    }
-    function resultSum(){
-        calcRoute(currentLocation,combineLocation(currentLocation,Locationize(rand_lat,rand_lon)),
-        generateWaypoints(combineLocation(currentLocation,Locationize(rand_lat,rand_lon))));
+}
 
-    }
+
+function resultSum(){
+    calcRoute(currentLocation,combineLocation(currentLocation,Locationize(rand_lat,rand_lon)),
+    generateWaypoints(combineLocation(currentLocation,Locationize(rand_lat,rand_lon))));
+
+}
+function startButton(){
+    getLocation();
+    displayInfo(window.currentLocation, 'YOU ARE HERE');
+    console.log('hello world')
     
 }
 
