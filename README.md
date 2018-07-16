@@ -16,4 +16,3 @@ We random new latitude and longtitude within 3 and -3 range by Math.random to ge
 
 
 
-
