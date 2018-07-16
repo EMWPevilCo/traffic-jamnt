@@ -14,5 +14,4 @@ how it's work?
 We got smartest algorithm here:
 We random new latitude and longtitude within 3 and -3 range by Math.random to generate the hidden location we hide it with clearStupidDot() func and we have bug sprayer func for worst case scenario
 
-
-
+**website: https://emwpevilco.github.io/traffic-jamnt/landing.html**
