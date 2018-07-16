@@ -310,7 +310,7 @@ function startButton() {
         displayInfo(window.currentLocation, 'YOU ARE HERE');
     });
 }
-function drawLine() {
+/*function drawLine() {
 
     var locs = [];
     for (var i = 0; i < arguments.length; i++) {
@@ -326,4 +326,4 @@ function drawLine() {
     });
 
     PolylinePath.setMap(map);
-}
+}*/
