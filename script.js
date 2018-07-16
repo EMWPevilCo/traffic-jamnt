@@ -310,20 +310,4 @@ function startButton() {
         displayInfo(window.currentLocation, 'YOU ARE HERE');
     });
 }
-function drawLine() {
 
-    var locs = [];
-    for (var i = 0; i < arguments.length; i++) {
-        locs.push(arguments[i]);
-    }
-
-    var PolylinePath = new google.maps.Polyline({
-        path: locs, // From a to b
-        geodesic: false,
-        strokeColor: '#FF2222',
-        strokeOpacity: 1.0,
-        strokeWeight: 2
-    });
-
-    PolylinePath.setMap(map);
-}
