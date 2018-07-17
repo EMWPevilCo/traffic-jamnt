@@ -310,4 +310,8 @@ function startButton() {
         displayInfo(window.currentLocation, 'YOU ARE HERE');
     });
 }
-
+/*function popupAds() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+}
+</script>*/
