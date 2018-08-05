@@ -1,5 +1,5 @@
 # Traffic Jamn't
-### projec create  for The Stupid Hackathon#2 Thailand 2018
+### project create  for The Stupid Hackathon#2 Thailand 2018
 The Code only available for stupid purpose 
 All source file created by 5 Devs of EWMPevilCORP
 You can supporting us via donate link
