@@ -2,12 +2,11 @@
 ### project create  for The Stupid Hackathon#2 Thailand 2018
 The Code only available for stupid purpose 
 All source file created by 5 Devs of EWMPevilCORP
-You can supporting us via donate link
 
 ### For this project we use 3 google map api 
-1. Places_autocomplete API for places database from google
+1. Places_autocomplete API for places data from google
 2. Geolocation API for current location and GPS usage
-3. Destination   API for path creating 
+3. Destination   API for creating route
 
 ### how it's work?
 We got smartest algorithm here:
@@ -15,4 +14,4 @@ We random new latitude and longtitude within 3 and -3 range by Math.random to ge
 
 **website: https://emwpevilco.github.io/traffic-jamnt/landing.html**
 
-## **Coming soon**
+## **For V.2 we'll release soon**
