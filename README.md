@@ -15,3 +15,6 @@ We random new latitude and longtitude within 3 and -3 range by Math.random to ge
 **website: https://emwpevilco.github.io/traffic-jamnt/landing.html**
 
 ## **For V.2 we'll release soon**
+
+#For Hacktoberfest2018
+We decided to make you able to paticipate with our project so feel free to makes any PRs you can do anything clean up my messy code.
