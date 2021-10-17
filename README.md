@@ -1,20 +1,20 @@
 # Traffic Jamn't
-### project create  for The Stupid Hackathon#2 Thailand 2018
-The Code only available for stupid purpose 
+### project created for The Stupid Hackathon#2 Thailand 2018
+The Code is only available for this stupid purpose. 
 All source file created by 5 Devs of EWMPevilCORP
 
-### For this project we use 3 google map api 
-1. Places_autocomplete API for places data from google
+### For this project we use 3 Google map APIs
+1. Places_autocomplete API for places data from Google
 2. Geolocation API for current location and GPS usage
-3. Destination   API for creating route
+3. Destination API for creating the route
 
-### how it's work?
-We got smartest algorithm here:
-We random new latitude and longtitude within 3 and -3 range by Math.random to generate the hidden location we hide it with clearStupidDot() func and we have bug sprayer func for worst case scenario
+### How it works?
+We have got the smartest algorithm:
+We random new latitude and longtitude within 3 and -3 range by Math.random to generate the hidden location and we hide it with clearStupidDot() func. We have the bug sprayer func for a fallback worst case scenario.
 
 **website: https://emwpevilco.github.io/traffic-jamnt/landing.html**
 
-## **For V.2 we'll release soon**
+## **We'll release V.2 soon**
 *not working right now
 # For Hacktoberfest2018
-We decided to make you able to paticipate with our project so feel free to makes any PRs you can do anything clean up my messy code.
+We decided to allow you to paticipate in our project, so feel free to makes any PRs you can to clean up my messy code.
